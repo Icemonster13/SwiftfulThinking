@@ -5,6 +5,7 @@
 //  Created by Michael Pascucci on 7/14/22.
 // - Utilize the NoItemsView when there are no items in the list
 // - Otherwise show the list of items to do
+// - Edit button is shown only if the list has items
 //
 
 
@@ -35,15 +36,19 @@ struct ListView: View {
                     .onMove(perform: listViewModel.moveItem)
                 }
                 .listStyle(PlainListStyle())
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                    }
+                }
             }
         }
         .navigationTitle("📝 To-Do List")
-        .navigationBarItems(
-            leading:
-                EditButton(),
-            trailing:
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink("Add", destination: AddView())
-        )
+            }
+        }
     }
 }
 

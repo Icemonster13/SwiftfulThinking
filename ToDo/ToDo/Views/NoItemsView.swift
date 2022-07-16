@@ -18,7 +18,9 @@ struct NoItemsView: View {
     
     // MARK: - BODY
     var body: some View {
-        ScrollView {
+        VStack {
+            Spacer()
+            
             VStack(spacing: 10) {
                 Text("There are no items in your list!")
                     .font(.title)
@@ -57,6 +59,8 @@ struct NoItemsView: View {
             .multilineTextAlignment(.center)
             .padding(40)
             .onAppear(perform: addAnimation)
+            
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
