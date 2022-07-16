@@ -20,10 +20,11 @@ struct ListRowView: View {
         HStack {
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
                 .foregroundColor(item.isCompleted ? .green : .accentColor)
+                .font(.title2.bold())
             Text(item.title)
+                .font(.title2)
             Spacer()
         }
-        .font(.title2.bold())
         .padding(.vertical, 8)
     }
 }
